@@ -1,0 +1,10 @@
+table, tbody,tr,th,td{
+    border: 1px dotted red;
+    border-collapse: collapse;
+}
+tr>td:nth-last-child(3){
+    background-color: blue;
+}
+tr>td:nth-last-child(1){
+    background-color: red;
+}
