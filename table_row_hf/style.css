@@ -1,0 +1,18 @@
+tbody, th, tr,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+tbody,tr{
+    background-color: green;
+}
+tr>td:nth-last-child(1){
+    background-color: chocolate;
+}
+tr>td:nth-last-child(3){
+    background-color:chartreuse;
+}
+tbody:hover,tr:hover,tr>td:nth-last-child(3):hover,tr>td:nth-last-child(1):hover{
+    background-color: cyan;
+    font-weight: bold;
+    color:darkred;
+}
