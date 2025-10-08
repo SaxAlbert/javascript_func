@@ -51,7 +51,7 @@ tr.appendChild(th3)
 const tbody=document.createElement('tbody')
 table.appendChild(tbody)
 
-for(const i=0;i<arr.lenght;i++){
+for(const key of arr){
     const tr=document.createElement('tr')
     tbody.appendChild(tr)
 
@@ -60,8 +60,23 @@ for(const i=0;i<arr.lenght;i++){
     const td3=document.createElement('td')
     const td4=document.createElement('td')
 
-    th1.innerText=arr.theme
-    th2.innerText=arr.time
-    th3.innerText=arr.scientist1
-    th3.innerText=arr.scientist2
+    td1.innerText=key.theme
+    td2.innerText=key.time
+    td3.innerText=key.scientist1
+
+    if(key.scientist2===undefined){
+        td3.colSpan=2
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+    }
+    else{
+        td4.innerText=key.scientist2
+
+        tr.appendChild(td1)
+        tr.appendChild(td2)
+        tr.appendChild(td3)
+        tr.appendChild(td4)
+    }
+
 }
