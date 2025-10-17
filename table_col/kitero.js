@@ -108,3 +108,14 @@ for(const key of arr){
         tr.appendChild(td4)
     }
 }
+/**
+ * 
+ * @param {string} celltype 
+ * @param {string} cellcontent 
+ * @param {HTMLTableRowElement} parentrow 
+ */
+function createCell(celltype,cellcontent,parentrow){
+    const a=document.createElement(celltype)
+    a.innerText=cellcontent
+    parentrow.appendChild(a)
+}
