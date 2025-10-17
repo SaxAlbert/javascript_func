@@ -78,5 +78,4 @@ for(const key of arr){
         tr.appendChild(td3)
         tr.appendChild(td4)
     }
-
 }
