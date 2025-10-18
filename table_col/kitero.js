@@ -84,38 +84,31 @@ for(const key of arr){
     const tr=document.createElement('tr')
     tbody.appendChild(tr)
 
-    const td1=document.createElement('td')
-    const td2=document.createElement('td')
-    const td3=document.createElement('td')
-    const td4=document.createElement('td')
 
-    td1.innerText=key.name
-    td2.innerText=key.kor
-    td3.innerText=key.szerelmek1
 
     if(key.szerelmek2===undefined){
-        td3.colSpan=2
-        tr.appendChild(td1)
-        tr.appendChild(td2)
-        tr.appendChild(td3)
+        createCell('td',key.name,tr)
+        createCell('td',key.kor,tr)
+        createCell('td',key.szerelmek1,tr).colSpan=2
+        
     }
     else{
-        td4.innerText=key.szerelmek2
-
-        tr.appendChild(td1)
-        tr.appendChild(td2)
-        tr.appendChild(td3)
-        tr.appendChild(td4)
+        createCell('td',key.name,tr)
+        createCell('td',key.kor,tr)
+        createCell('td',key.szerelmek1,tr)
+        createCell('td',key.szerelmek2,tr)
     }
 }
-/**
- * 
+/** 
  * @param {string} celltype 
  * @param {string} cellcontent 
  * @param {HTMLTableRowElement} parentrow 
+ * @returns {HTMLTableCellElement}
  */
 function createCell(celltype,cellcontent,parentrow){
     const a=document.createElement(celltype)
     a.innerText=cellcontent
     parentrow.appendChild(a)
+
+    return a
 }
