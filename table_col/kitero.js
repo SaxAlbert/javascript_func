@@ -27,6 +27,7 @@ for(const key in y){
 }
 */
 
+
 /**
  * @type {{name:string, kor:string, szerelmek1:string, szerelmek2:string}}
  */
@@ -112,3 +113,87 @@ function createCell(celltype,cellcontent,parentrow){
 
     return a
 }
+
+
+const form_arr=[
+    {
+        for: 'kolto_nev',
+        text: 'Költő neve:',
+        input_type: 'text',
+        input_id: 'kolto_nev',
+        input_nev: 'kolto_nev'
+    },
+    {
+        for: 'korszak',
+        text: 'Korszak:',
+        input_type: 'text',
+        input_id: 'korszak',
+        input_nev: 'korszak'
+    },
+    {
+        for: 'szerelem1',
+        text: 'Szerelme:',
+        input_type: 'text',
+        input_id: 'szerelem1',
+        input_nev: 'szerelem1'
+    },
+    {
+        for: 'szerelem2',
+        text: 'Szerelme:',
+        input_type: 'text',
+        input_id: 'szerelem2',
+        input_nev: 'szerelem2'
+    }
+];
+/**
+ * 
+ * @param {string} content1 
+ * @param {string} content2 
+ */
+function lable_form(content1,content2){
+    const b=document.createElement('label')
+    b.for=content1
+    b.innerText=content2
+    form.appendChild(b)
+    return b
+}
+/**
+ * 
+ * @param {string} type 
+ * @param {string} id 
+ * @param {string} nev 
+ * @returns 
+ */
+function input_form(type,id,nev){
+    const c=document.createElement('input')
+    c.type=type
+    c.id=id
+    c.name=nev
+    form.appendChild(c)
+    return c
+}
+
+function br_form(){
+    const br=document.createElement('br')
+    form.appendChild(br)
+}
+
+const form=document.createElement('form')
+document.body.appendChild(form)
+form.id='form_js';
+
+const title=document.createElement('h2')
+title.innerHTML="javascript form:"
+form.appendChild(title)
+
+for(const key of form_arr){
+    lable_form(key.for,key.text)
+    br_form()
+    input_form(key.input_type,key.input_id,key.input_nev)
+    br_form()
+    br_form()
+}
+
+const button=document.createElement('button')
+button.innerText='Hozzáadás';
+form.appendChild(button)
