@@ -155,14 +155,12 @@ function lable_form(content1,content2){
     b.for=content1
     b.innerText=content2
     form.appendChild(b)
-    return b
 }
 /**
  * 
  * @param {string} type 
  * @param {string} id 
  * @param {string} nev 
- * @returns 
  */
 function input_form(type,id,nev){
     const c=document.createElement('input')
@@ -170,7 +168,6 @@ function input_form(type,id,nev){
     c.id=id
     c.name=nev
     form.appendChild(c)
-    return c
 }
 
 function br_form(){
