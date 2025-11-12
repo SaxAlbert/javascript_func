@@ -36,3 +36,6 @@ tr:has(td[rowspan]):hover+tr td{
 tr:has(td[rowspan])+:has(+tr:hover())+tr:hover td{
     background-color: darkcyan;
 }
+.marked{
+    color:red;
+}
