@@ -1,5 +1,6 @@
 /**
- * @type {{nemzetiseg: string,mu:string,mu2:string,szerzo:string,szerzo2:string}}
+ * @typedef {{nemzetiseg: string,mu:string,mu2:string,szerzo:string,szerzo2:string}} CountryWriters
+ * @typedef {{td|th}} Vagy
  */
 const arr = [
     {
@@ -49,45 +50,13 @@ th3.innerText='Mű'
 tr.appendChild(th1)
 tr.appendChild(th2)
 tr.appendChild(th3)
-/**
- * 
- * @param {string} type 
- * @param {string} content 
- * @param {HTMLTableRowElement} parentrow 
- */
-function createCell(type,content,parentrow){
-    const a=document.createElement(type)
-    a.innerText=content
-    parentrow.appendChild(a)
-    return a
-}
 
-/**
- * 
- * @param {Array} arr 
- */
-function renderTableBody(arr){
-    for(const key of arr){
-        const tr = document.createElement("tr")
-    tbody.appendChild(tr)
-    const td1 = document.createElement("td")
-    tr.appendChild(td1)
-    createCell('td',key.szerzo,tr)
-    createCell('td',key.mu,tr)
-    td1.innerText = key.nemzetiseg
-
-    if(key.szerzo2 && key.mu2){
-        td1.rowSpan = "2"
-        const tr2 = document.createElement('tr')
-        tbody.appendChild(tr2)
-        createCell('td',key.szerzo2,tr2)
-        createCell('td',key.mu2,tr2)
-    }
-    }
-}
 
 renderTableBody(arr)
 
+/**
+ * @type {CountryWriters}
+ */
 const form=document.getElementById('htmlform')
 form.addEventListener('submit',function (e){
     e.preventDefault()
@@ -122,7 +91,7 @@ form.addEventListener('submit',function (e){
     const szerzo2=name2.value
     const mu2=title2.value
     /**
-    *  @type {{nemzetiseg: string, szerzo: string, mu:string, szerzo2:string, mu2:string}}
+    *  @type {CountryWriters}
     */
     const obj={}
     obj.nemzetiseg=nemzetiseg;
@@ -161,7 +130,9 @@ form.addEventListener('submit',function (e){
         td4.innerText = obj.szerzo2
         td5.innerText = obj.mu2
     }
-
+/**
+ * @type {CountryWriters}
+ */
     td1.addEventListener('click', function (e){
         /**
         * @type {{target:HTMLTableCellElement}[]}
@@ -177,3 +148,24 @@ form.addEventListener('submit',function (e){
     })
     renderTableBody()
 })
+/**
+ * 
+ * @param {HTMLSelectElement} element1 
+ * @param {Cust} element2 
+ */
+function renderTableRow(element1, element2){
+
+}
+/**
+ * 
+ * @param {*} type 
+ * @param {string} content 
+ * @param {HTMLTableRowElement} parentrow 
+ * @returns {string}
+ */
+function renderTableCell(type,content,parentrow){
+    const a=document.createElement(type)
+    a.innerText=content
+    parentrow.appendChild(a)
+    return a
+}
